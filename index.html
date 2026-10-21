@@ -149,19 +149,12 @@
   .schedule-row .icon{flex:0 0 auto;}
 
   /* PACKAGING ANIMATION */
-  .pack-stage{position:relative; width:100%; max-width:260px; margin:0 auto; aspect-ratio:1/1;}
-  .pack-frame{position:absolute; inset:0; opacity:0; transition:opacity .5s ease;}
-  .pack-frame.active{opacity:1;}
-  .pack-dots{display:flex; justify-content:center; gap:8px; margin-top:16px;}
-  .pack-dot{width:8px; height:8px; border-radius:50%; background:var(--cream-deep); cursor:pointer; transition:.2s; border:none; padding:0;}
-  .pack-dot.active{background:var(--rust); width:22px; border-radius:5px;}
-  .pack-caption{text-align:center; font-weight:700; color:var(--navy); font-size:14.5px; margin-top:14px; min-height:20px;}
   .pack-steps{margin-top:20px; display:grid; gap:12px;}
   .pack-step-row{display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--ink);}
   .pack-step-row .n{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--sage-soft); color:var(--navy); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:1px;}
   .pack-video{margin-top:18px; text-align:center;}
   .pack-video h3{font-size:14px; font-weight:700; color:var(--navy); margin:0 0 10px;}
-  .vid-box{position:relative; width:100%; max-width:240px; aspect-ratio:9/16; margin:0 auto; border-radius:16px; overflow:hidden; background:var(--navy); box-shadow:0 6px 18px rgba(34,54,79,.18);}
+  .vid-box{position:relative; width:100%; max-width:340px; aspect-ratio:9/16; margin:0 auto; border-radius:16px; overflow:hidden; background:var(--navy); box-shadow:0 6px 18px rgba(34,54,79,.18);}
   .vid-box iframe,.vid-box button{position:absolute; inset:0; width:100%; height:100%; border:0; padding:0;}
   .vid-box button{cursor:pointer; background:var(--navy) center/cover no-repeat url(https://i.ytimg.com/vi/wBEd7uhdKoY/hqdefault.jpg);}
   .vid-box .play{position:absolute; left:50%; top:50%; width:60px; height:60px; margin:-30px 0 0 -30px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center;}
@@ -361,103 +354,11 @@
     <div class="kicker">How to Portion</div>
     <h2 class="title">分裝方式</h2>
     <div class="card">
-      <div class="pack-stage" id="packStage">
-
-        <svg class="pack-frame active" data-frame="0" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="176" width="260" height="14" fill="var(--cream-deep)"/>
-          <rect x="0" y="190" width="260" height="30" rx="4" fill="var(--navy-soft)"/>
-          <text x="230" y="212" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="11" fill="var(--cream)">桌角</text>
-
-          <rect x="90" y="70" width="80" height="110" rx="14" fill="var(--white)" stroke="var(--navy)" stroke-width="4"/>
-          <path d="M96 84 L106 76 L116 84 L126 76 L136 84 L146 76 L156 84 L164 78" stroke="var(--rust)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <g fill="var(--sage-soft)" stroke="var(--sage)" stroke-width="2">
-            <rect x="100" y="110" width="26" height="26" rx="5"/><rect x="134" y="110" width="26" height="26" rx="5"/>
-            <rect x="100" y="142" width="26" height="26" rx="5"/><rect x="134" y="142" width="26" height="26" rx="5"/>
-          </g>
-          <text x="52" y="70" font-size="30">❄️</text>
-
-          <text x="130" y="245" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="15" fill="var(--navy)">① 冷凍・未拆封</text>
-        </svg>
-
-        <svg class="pack-frame" data-frame="1" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="176" width="260" height="14" fill="var(--cream-deep)"/>
-          <rect x="0" y="190" width="260" height="30" rx="4" fill="var(--navy-soft)"/>
-          <text x="230" y="212" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="11" fill="var(--cream)">桌角</text>
-
-          <rect x="90" y="70" width="80" height="110" rx="14" fill="var(--white)" stroke="var(--navy)" stroke-width="4"/>
-          <path d="M96 84 L106 76 L116 84 L126 76 L136 84 L146 76 L156 84 L164 78" stroke="var(--rust)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <g fill="var(--sage-soft)" stroke="var(--sage)" stroke-width="2">
-            <rect x="100" y="110" width="26" height="26" rx="5"/><rect x="134" y="110" width="26" height="26" rx="5"/>
-            <rect x="100" y="142" width="26" height="26" rx="5"/><rect x="134" y="142" width="26" height="26" rx="5"/>
-          </g>
-          <line x1="90" y1="176" x2="170" y2="176" stroke="var(--rust)" stroke-width="3" stroke-dasharray="6 5"/>
-          <text x="130" y="45" text-anchor="middle" font-size="34">✋</text>
-          <line x1="130" y1="52" x2="130" y2="65" stroke="var(--navy)" stroke-width="3" marker-end="url(#arrowdown1)"/>
-          <defs><marker id="arrowdown1" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--navy)"/></marker></defs>
-
-          <text x="130" y="245" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="15" fill="var(--navy)">② 沿桌角凹斷冰磚</text>
-        </svg>
-
-        <svg class="pack-frame" data-frame="2" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="176" width="260" height="14" fill="var(--cream-deep)"/>
-          <rect x="0" y="190" width="260" height="30" rx="4" fill="var(--navy-soft)"/>
-
-          <rect x="90" y="86" width="80" height="94" rx="14" fill="var(--white)" stroke="var(--navy)" stroke-width="4"/>
-          <path d="M90 86 L110 68 L130 86" stroke="var(--navy)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M130 86 L150 68 L170 86" stroke="var(--navy)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <g fill="var(--sage-soft)" stroke="var(--sage)" stroke-width="2">
-            <rect x="100" y="130" width="24" height="24" rx="5"/><rect x="136" y="130" width="24" height="24" rx="5"/>
-          </g>
-          <g transform="rotate(-30 205 95)">
-            <ellipse cx="205" cy="90" rx="12" ry="16" fill="var(--rust-soft)" stroke="var(--rust)" stroke-width="2"/>
-            <rect x="200" y="104" width="10" height="34" rx="5" fill="var(--rust-soft)" stroke="var(--rust)" stroke-width="2"/>
-          </g>
-          <rect x="122" y="108" width="16" height="16" rx="4" fill="var(--sage)"/>
-          <path d="M136 112 Q170 95 195 88" stroke="var(--navy-soft)" stroke-width="2" fill="none" stroke-dasharray="4 4" marker-end="url(#arrowdot)"/>
-          <defs><marker id="arrowdot" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--navy-soft)"/></marker></defs>
-          <path d="M190 165 q18 22 40 14 q10 14 -8 24 q-26 8 -38 -14 q-6 -13 6 -24z" fill="var(--blush)" stroke="var(--rust-soft)" stroke-width="2.5"/>
-
-          <text x="130" y="245" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="15" fill="var(--navy)">③ 打開取出所需量</text>
-        </svg>
-
-        <svg class="pack-frame" data-frame="3" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="176" width="260" height="14" fill="var(--cream-deep)"/>
-          <rect x="0" y="190" width="260" height="30" rx="4" fill="var(--navy-soft)"/>
-
-          <rect x="90" y="100" width="80" height="80" rx="14" fill="var(--white)" stroke="var(--navy)" stroke-width="4"/>
-          <rect x="90" y="94" width="80" height="18" rx="7" fill="var(--sage)"/>
-          <rect x="118" y="82" width="24" height="26" rx="5" fill="var(--navy)"/>
-          <g fill="var(--sage-soft)" stroke="var(--sage)" stroke-width="2">
-            <rect x="100" y="140" width="24" height="24" rx="5"/><rect x="136" y="140" width="24" height="24" rx="5"/>
-          </g>
-
-          <path d="M175 130 Q205 130 205 100" stroke="var(--navy-soft)" stroke-width="2.5" fill="none" stroke-dasharray="4 4" marker-end="url(#arrowdot2)"/>
-          <defs><marker id="arrowdot2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--navy-soft)"/></marker></defs>
-          <text x="205" y="88" text-anchor="middle" font-size="30">❄️</text>
-
-          <g transform="translate(196,155)">
-            <circle r="24" fill="var(--rust)"/>
-            <text x="0" y="7" text-anchor="middle" font-family="Quicksand" font-weight="700" font-size="16" fill="var(--white)">48H</text>
-          </g>
-
-          <text x="130" y="245" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="15" fill="var(--navy)">④ 封好回凍,48H內吃完</text>
-        </svg>
-
-      </div>
-
-      <div class="pack-dots" id="packDots">
-        <button class="pack-dot active" data-i="0" aria-label="步驟1"></button>
-        <button class="pack-dot" data-i="1" aria-label="步驟2"></button>
-        <button class="pack-dot" data-i="2" aria-label="步驟3"></button>
-        <button class="pack-dot" data-i="3" aria-label="步驟4"></button>
-      </div>
-      <div class="pack-caption" id="packCaption">冷凍、未開封狀態</div>
-
       <div class="pack-steps">
         <div class="pack-step-row"><div class="n">1</div>倚靠桌角當切線,在「冷凍未開封」狀態下,直接凹斷袋內的冰磚。</div>
         <div class="pack-step-row"><div class="n">2</div>再開封,取出這一餐需要的量,加熱後給寶寶食用。</div>
         <div class="pack-step-row"><div class="n">3</div>剩下的部分密封好,放回冷凍庫保存,下次再取用。</div>
-        <div class="pack-step-row"><div class="n">4</div>回凍的部分因為已經開封,請在 <b>48 小時內</b>食用完畢。</div>
+        <div class="pack-step-row"><div class="n">4</div><div>回凍的部分因為已經開封,請在 <b>48 小時內</b>食用完畢。</div></div>
       </div>
       <div class="pack-video">
         <h3>🎬 影片示範</h3>
@@ -532,42 +433,7 @@
 <a href="#" id="toTop">↑</a>
 
 <script>
-  document.querySelectorAll('.navlink').forEach(function(link){link.addEventListener('click', function(e){var id = link.getAttribute('href'); if(!id || id.charAt(0) !== '#') return; var target = document.querySelector(id); if(!target) return; e.preventDefault(); var navbar = document.querySelector('.navbar'); var offset = navbar ? navbar.getBoundingClientRect().height : 0; var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 8; window.scrollTo({ top: top, behavior: 'smooth' }); history.pushState(null, '', id); });}); // Packaging animation
-  const packFrames = document.querySelectorAll('.pack-frame');
-  const packDots = document.querySelectorAll('.pack-dot');
-  const packCaption = document.getElementById('packCaption');
-  const packCaptions = [
-    '冷凍、未開封狀態',
-    '倚靠桌角凹斷內部冰磚',
-    '開封取出所需份量',
-    '密封回凍,48 小時內食用完畢'
-  ];
-  let packIndex = 0;
-  let packTimer = null;
-
-  function showPackFrame(i){
-    packIndex = i;
-    packFrames.forEach(f=> f.classList.toggle('active', +f.dataset.frame === i));
-    packDots.forEach(d=> d.classList.toggle('active', +d.dataset.i === i));
-    packCaption.textContent = packCaptions[i];
-  }
-
-  function startPackAuto(){
-    if(packTimer) clearInterval(packTimer);
-    packTimer = setInterval(()=>{
-      showPackFrame((packIndex + 1) % packFrames.length);
-    }, 2600);
-  }
-
-  packDots.forEach(dot=>{
-    dot.addEventListener('click', ()=>{
-      showPackFrame(+dot.dataset.i);
-      startPackAuto();
-    });
-  });
-
-  showPackFrame(0);
-  startPackAuto();
+  document.querySelectorAll('.navlink').forEach(function(link){link.addEventListener('click', function(e){var id = link.getAttribute('href'); if(!id || id.charAt(0) !== '#') return; var target = document.querySelector(id); if(!target) return; e.preventDefault(); var navbar = document.querySelector('.navbar'); var offset = navbar ? navbar.getBoundingClientRect().height : 0; var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 8; window.scrollTo({ top: top, behavior: 'smooth' }); history.pushState(null, '', id); });});
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item=>{
