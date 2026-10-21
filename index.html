@@ -159,6 +159,13 @@
   .pack-steps{margin-top:20px; display:grid; gap:12px;}
   .pack-step-row{display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--ink);}
   .pack-step-row .n{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--sage-soft); color:var(--navy); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:1px;}
+  .pack-video{margin-top:18px; text-align:center;}
+  .pack-video h3{font-size:14px; font-weight:700; color:var(--navy); margin:0 0 10px;}
+  .vid-box{position:relative; width:100%; max-width:240px; aspect-ratio:9/16; margin:0 auto; border-radius:16px; overflow:hidden; background:var(--navy); box-shadow:0 6px 18px rgba(34,54,79,.18);}
+  .vid-box iframe,.vid-box button{position:absolute; inset:0; width:100%; height:100%; border:0; padding:0;}
+  .vid-box button{cursor:pointer; background:var(--navy) center/cover no-repeat url(https://i.ytimg.com/vi/wBEd7uhdKoY/hqdefault.jpg);}
+  .vid-box .play{position:absolute; left:50%; top:50%; width:60px; height:60px; margin:-30px 0 0 -30px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center;}
+  .vid-box .play:after{content:""; margin-left:5px; border-left:18px solid var(--rust); border-top:11px solid transparent; border-bottom:11px solid transparent;}
   .pack-warn{margin-top:16px; background:var(--blush); border-radius:12px; padding:12px 14px; font-size:13px; color:#8A4218; font-weight:700; display:flex; gap:8px; align-items:flex-start;}
 
   /* FAQ */
@@ -452,6 +459,10 @@
         <div class="pack-step-row"><div class="n">3</div>剩下的部分密封好,放回冷凍庫保存,下次再取用。</div>
         <div class="pack-step-row"><div class="n">4</div>回凍的部分因為已經開封,請在 <b>48 小時內</b>食用完畢。</div>
       </div>
+      <div class="pack-video">
+        <h3>🎬 影片示範</h3>
+        <div class="vid-box" id="vidBox"><button type="button" id="vidBtn" aria-label="播放分裝示範影片"><span class="play"></span></button></div>
+      </div>
       <div class="pack-warn">⚠️ 已開封回凍的部分,請於 48 小時內食用完畢,避免放置過久。</div>
     </div>
   </section>
@@ -707,5 +718,8 @@
   }
 </script>
 
+<script>
+(function(){var b=document.getElementById('vidBtn');if(!b)return;b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/wBEd7uhdKoY?autoplay=1&rel=0&playsinline=1';f.title='分裝示範影片';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;var box=document.getElementById('vidBox');box.innerHTML='';box.appendChild(f);});})();
+</script>
 </body>
 </html>
