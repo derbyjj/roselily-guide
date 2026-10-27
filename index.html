@@ -145,6 +145,10 @@
     content:''; position:absolute; left:-18px; top:50%; transform:translateY(-50%); width:9px; height:9px;
     border-radius:50%; background:var(--sage); border:2px solid var(--white); box-shadow:0 0 0 1px var(--sage);
   }
+  .schedule-group{position:relative; margin:4px 0; padding:2px 10px; background:var(--sage-soft); border-radius:12px;}
+  .schedule-group::before{content:''; position:absolute; left:-18px; top:50%; transform:translateY(-50%); width:9px; height:9px; border-radius:50%; background:var(--sage); border:2px solid var(--white); box-shadow:0 0 0 1px var(--sage);}
+  .schedule-group .schedule-row::before{display:none;}
+  .schedule-group .schedule-row{padding:6px 0;}
   .schedule-row .time{flex:0 0 auto; font-family:'Quicksand',sans-serif; font-weight:700; color:var(--navy); font-size:12.5px; width:44px;}
   .schedule-row .icon{flex:0 0 auto;}
 
@@ -479,8 +483,7 @@
       serving: '25g+',
       rows: [
         {time:'7:00', icon:'🍼', label:'奶'},
-        {time:'10:30', icon:'🥣', label:'副食品(少)'},
-        {time:'11:00', icon:'🍼', label:'餐後補奶(多)'},
+        {group:[{time:'10:30', icon:'🥣', label:'副食品(少)'}, {time:'11:00', icon:'🍼', label:'餐後補奶(多)'}]},
         {time:'15:00', icon:'🍼', label:'奶'},
         {time:'19:00', icon:'🍼', label:'奶'},
         {time:'22:00', icon:'🍼', label:'睡前奶'}
@@ -490,11 +493,9 @@
       serving: '80g+',
       rows: [
         {time:'7:00', icon:'🍼', label:'奶'},
-        {time:'10:30', icon:'🥣', label:'副食品(少)'},
-        {time:'11:00', icon:'🍼', label:'餐後補奶(多)'},
+        {group:[{time:'10:30', icon:'🥣', label:'副食品(少)'}, {time:'11:00', icon:'🍼', label:'餐後補奶(多)'}]},
         {time:'15:00', icon:'🍼', label:'奶'},
-        {time:'19:00', icon:'🥣', label:'副食品(少)'},
-        {time:'19:30', icon:'🍼', label:'餐後補奶(多)'},
+        {group:[{time:'19:00', icon:'🥣', label:'副食品(少)'}, {time:'19:30', icon:'🍼', label:'餐後補奶(多)'}]},
         {time:'22:00', icon:'🍼', label:'睡前奶'}
       ]
     },
@@ -502,8 +503,7 @@
       serving: '100g+',
       rows: [
         {time:'7:00', icon:'🍼', label:'奶'},
-        {time:'10:30', icon:'🥣', label:'副食品(多)'},
-        {time:'11:00', icon:'🍼', label:'餐後補奶(少)'},
+        {group:[{time:'10:30', icon:'🥣', label:'副食品(多)'}, {time:'11:00', icon:'🍼', label:'餐後補奶(少)'}]},
         {time:'15:00', icon:'🍼', label:'奶'},
         {time:'19:00', icon:'🥣', label:'副食品'},
         {time:'22:00', icon:'🍼', label:'睡前奶'}
@@ -529,8 +529,10 @@
   function renderSchedule(age){
     const data = scheduleData[age];
     scheduleServing.innerHTML = `每餐建議量 <b>${data.serving}</b>`;
+    const rowHtml = (r, first)=>
+      `<div class="schedule-row"><span class="time">${first ? r.time : ''}</span><span class="icon">${r.icon}</span><span>${r.label}</span></div>`;
     scheduleTimeline.innerHTML = data.rows.map(r=>
-      `<div class="schedule-row"><span class="time">${r.time}</span><span class="icon">${r.icon}</span><span>${r.label}</span></div>`
+      r.group ? `<div class="schedule-group">${r.group.map((g,k)=>rowHtml(g,k===0)).join('')}</div>` : rowHtml(r,true)
     ).join('');
   }
 
