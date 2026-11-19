@@ -164,6 +164,7 @@
   .vid-box button{cursor:pointer; background:var(--navy) center/cover no-repeat url(https://i.ytimg.com/vi/3HuFp--ovYs/hqdefault.jpg);}
   .vid-box .play{position:absolute; left:50%; top:50%; width:60px; height:60px; margin:-30px 0 0 -30px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center;}
   .vid-box .play:after{content:""; margin-left:5px; border-left:18px solid var(--rust); border-top:11px solid transparent; border-bottom:11px solid transparent;}
+  @media (max-width:600px){ .vid-box{width:100vw; max-width:none; margin-left:calc(50% - 50vw); border-radius:0; box-shadow:none;} }
   .pack-warn{margin-top:16px; background:var(--blush); border-radius:12px; padding:12px 14px; font-size:13px; color:#8A4218; font-weight:700; display:flex; gap:8px; align-items:flex-start;}
 
   /* FAQ */
